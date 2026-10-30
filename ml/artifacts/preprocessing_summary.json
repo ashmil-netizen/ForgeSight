@@ -1,0 +1,83 @@
+{
+  "source": "UCI AI4I 2020 Predictive Maintenance Dataset (ID 601)",
+  "source_file": "data/raw/ai4i_2020_raw.csv",
+  "original_rows": 10000,
+  "cleaned_rows": 10000,
+  "duplicates_removed": 0,
+  "missing_values_in_selected_features_and_target_before_cleaning": 0,
+  "missing_value_handling": "Numeric median and categorical most-frequent imputers are fitted on training data only.",
+  "target": "Machine failure",
+  "input_features": [
+    "Type",
+    "Air temperature",
+    "Process temperature",
+    "Rotational speed",
+    "Torque",
+    "Tool wear"
+  ],
+  "excluded_from_model_inputs": [
+    "UID",
+    "Product ID",
+    "TWF",
+    "HDF",
+    "PWF",
+    "OSF",
+    "RNF"
+  ],
+  "split": {
+    "test_size": 0.2,
+    "random_state": 42,
+    "stratified": true,
+    "train_rows": 8000,
+    "test_rows": 2000,
+    "train_class_distribution": {
+      "0": {
+        "count": 7729,
+        "percentage": 96.6125
+      },
+      "1": {
+        "count": 271,
+        "percentage": 3.3875
+      }
+    },
+    "test_class_distribution": {
+      "0": {
+        "count": 1932,
+        "percentage": 96.6
+      },
+      "1": {
+        "count": 68,
+        "percentage": 3.4
+      }
+    }
+  },
+  "preprocessing": {
+    "numeric": "median imputation then standard scaling",
+    "categorical": "most-frequent imputation then one-hot encoding",
+    "unknown_categories": "ignored",
+    "fit_on": "training features only",
+    "output_feature_names": [
+      "Air temperature",
+      "Process temperature",
+      "Rotational speed",
+      "Torque",
+      "Tool wear",
+      "Type_H",
+      "Type_L",
+      "Type_M"
+    ]
+  },
+  "imbalance_handling": {
+    "method": "balanced class weights calculated from training labels only",
+    "class_weights": {
+      "0": 0.51753138,
+      "1": 14.7601476
+    },
+    "note": "No resampling was applied before splitting. Pass these weights to the classifier in Phase 4; keep the test set at its natural class distribution for evaluation."
+  },
+  "versions": {
+    "pandas": "3.1.0",
+    "scikit_learn": "1.9.1"
+  },
+  "preprocessor_file": "artifacts/preprocessor.joblib"
+}

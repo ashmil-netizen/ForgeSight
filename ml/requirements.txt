@@ -1,0 +1,10 @@
+pandas
+ucimlrepo
+matplotlib
+seaborn
+tabulate
+scikit-learn
+joblib
+fastapi
+uvicorn
+httpx

@@ -1,0 +1,101 @@
+{
+  "source": "UCI AI4I 2020 Predictive Maintenance Dataset (ID 601)",
+  "selection": {
+    "criterion": "highest mean 5-fold stratified training average precision",
+    "selected_model": "Random Forest",
+    "selected_model_cv_average_precision_mean": 0.7495381903994817,
+    "test_set_used_for_selection": false,
+    "threshold_tuned_on_test": false,
+    "decision_threshold": 0.5
+  },
+  "cross_validation_average_precision": {
+    "Logistic Regression": {
+      "fold_scores": [
+        0.44831558119875387,
+        0.43897675434589195,
+        0.38811814788974053,
+        0.4804595339354265,
+        0.4486129857868961
+      ],
+      "mean": 0.4408966006313418,
+      "std": 0.02989669027738404
+    },
+    "Random Forest": {
+      "fold_scores": [
+        0.810593103897476,
+        0.7541779437727525,
+        0.7323878655355336,
+        0.7166311948589145,
+        0.7339008439327317
+      ],
+      "mean": 0.7495381903994817,
+      "std": 0.032774259340462256
+    }
+  },
+  "held_out_test_metrics": {
+    "Logistic Regression": {
+      "accuracy": 0.8245,
+      "precision": 0.14177215189873418,
+      "recall": 0.8235294117647058,
+      "f1": 0.24190064794816415,
+      "roc_auc": 0.9069540859822189,
+      "pr_auc_average_precision": 0.38176196610560775
+    },
+    "Random Forest": {
+      "accuracy": 0.98,
+      "precision": 0.9375,
+      "recall": 0.4411764705882353,
+      "f1": 0.6,
+      "roc_auc": 0.9660554439166972,
+      "pr_auc_average_precision": 0.7802215068236551
+    }
+  },
+  "held_out_confusion_matrices": {
+    "Logistic Regression": [
+      [
+        1593,
+        339
+      ],
+      [
+        12,
+        56
+      ]
+    ],
+    "Random Forest": [
+      [
+        1930,
+        2
+      ],
+      [
+        38,
+        30
+      ]
+    ]
+  },
+  "error_counts": {
+    "Logistic Regression": {
+      "true_negatives": 1593,
+      "false_positives": 339,
+      "false_negatives": 12,
+      "true_positives": 56
+    },
+    "Random Forest": {
+      "true_negatives": 1930,
+      "false_positives": 2,
+      "false_negatives": 38,
+      "true_positives": 30
+    }
+  },
+  "imbalance_handling": {
+    "logistic_regression": "class_weight='balanced', calculated by the estimator on each fit",
+    "random_forest": "class_weight='balanced_subsample', calculated per bootstrap sample"
+  },
+  "test_rows": 2000,
+  "test_positive_count": 68,
+  "versions": {
+    "pandas": "3.1.0",
+    "scikit_learn": "1.9.1"
+  },
+  "model_file": "artifacts/best_model.joblib",
+  "note": "Class-weighted model scores are not guaranteed to be calibrated probabilities. The dataset is an educational benchmark and does not establish real-world industrial performance."
+}

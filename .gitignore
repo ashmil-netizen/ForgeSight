@@ -1,0 +1,13 @@
+# Python environments, bytecode, and test caches
+ml/.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Node/Vite dependencies and generated output
+frontend/node_modules/
+frontend/dist/
+
+# Local prediction history and transient SQLite files
+ml/data/*.sqlite3
+ml/data/*.sqlite3-*
